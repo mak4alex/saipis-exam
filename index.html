@@ -350,13 +350,39 @@
                 alert('Last two words: ' + lastTwoWords);
                 alert('Other words: ' + otherWords);
             }
-            number12();
+            //number12();
 
 
             /*
                  Создать выпадающий список продуктов и кнопку по нажатию
                  на которую в новом окне выводится выбранный пункт
              */
+
+            function number13() {
+                var select = document.createElement('select');
+
+                for(var option, i = 0; i < 10; ++i) {
+                    option = document.createElement('option');
+                    option.innerHTML = 'Product ' + i;
+                    select.appendChild(option);
+                }
+
+                var button = document.createElement('button');
+                button.innerHTML = 'Get product';
+                button.id = 'btn';
+
+                document.body.appendChild(select);
+                document.body.appendChild(button);
+
+                document.getElementById('btn').onclick = function () {
+                    var input = document.getElementsByTagName('select')[0];
+                    var productChoice = input.options[input.selectedIndex].innerHTML;
+                    var win = window.open();
+                    win.document.write(productChoice);
+                };
+
+            }
+            number13();
 
 
             /*

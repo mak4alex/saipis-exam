@@ -382,7 +382,7 @@
                 };
 
             }
-            number13();
+            //number13();
 
 
             /*
@@ -390,6 +390,56 @@
                  При выборе чекбокса и нажатии на кнопку,
                  вывести выбранное значение в модальном окне
              */
+
+            function number14() {
+                var textOne = document.createElement('span');
+                textOne.innerHTML = 'Сдал';
+                var textFieldOne = document.createElement('input');
+                textFieldOne.type = 'checkbox';
+                textFieldOne.name = 'exam';
+                textFieldOne.value = 'Сдал';
+
+                var textTwo = document.createElement('span');
+                textTwo.innerHTML = 'Не сдал';
+                var textFieldTwo = document.createElement('input');
+                textFieldTwo.type = 'checkbox';
+                textFieldTwo.name = 'exam';
+                textFieldTwo.value = 'Не сдал';
+
+
+                var br = document.createElement('br');
+
+                var button = document.createElement('button');
+                button.innerHTML = 'Get result';
+                button.id = 'btn';
+
+
+                document.body.appendChild(textOne);
+                document.body.appendChild(textFieldOne);
+                document.body.appendChild(textTwo);
+                document.body.appendChild(textFieldTwo);
+                document.body.appendChild(br);
+                document.body.appendChild(button);
+
+
+                document.getElementById('btn').onclick = function () {
+                    var checkBoxes = document.getElementsByName('exam');
+
+
+                    var data = '';
+                    for (var i = 0; i < checkBoxes.length; ++i) {
+                        if (checkBoxes[i].checked) {
+                            data += checkBoxes[i].value + ' ';
+                        }
+                    }
+                    data = data || 'No one checkbox were checked.';
+
+                    var win = window.open();
+
+                    win.document.write(data);
+                };
+            }
+            number14();
 
             /*
                  Создать массив из 100 элементов, заполнить его

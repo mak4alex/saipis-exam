@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>JS exam</title>
+    <script type="text/javascript">
+        window.onload = function() {
+            /*  Написать функцию, которая считает среднее
+                арифметическое параметров функции независимо
+                от хи количества
+            */
+            function number1() {
+
+                function countAverageSum() {
+                    var sum = 0;
+                    var count = 0;
+                    for (var i = 0; i < arguments.length; i++) {
+                        if ((typeof arguments[i]) === 'number') {
+                            sum += arguments[i];
+                            ++count;
+                        }
+                    }
+                    var averageSum = sum / count;
+                    return averageSum;
+                }
+
+                alert(countAverageSum(5, 4,'lol', 6 ));
+                alert(countAverageSum(1, 2, true, 14.3, 0, -5,'baby', 6 ));
+
+            }
+            //number1();
+            /*
+                Создать объект person c полями name,
+                age, job. Все поля задаются изначально.
+                С помощью метода prototype вывести
+                из конструктора данные на экран.
+             */
+            function number2() {
+
+                function Person(name, age, job) {
+                    this.name = name;
+                    this.age = age;
+                    this.job = job;
+                }
+
+                Person.prototype.show = function() {
+                    alert('Hello, my name is ' + this.name + '. I am ' +  this.age + ' and I am a ' + this.job + '.');
+                };
+
+                var dima = new Person('Dima', '33', 'solder');
+                var alena = new Person('Alena', '20', 'pornostar');
+
+                dima.show();
+                alena.show();
+
+            }
+
+            //number2();
+
+            /*
+                Два тестовых поля и кнопка, по
+                нажатию на кнопку перенести текст из первого поля
+                во второе и добавить к нему системное время.
+             */
+            function number3 () {
+                var textOne = document.createElement('p');
+                textOne.innerHTML = 'First text field';
+                var textFieldOne = document.createElement('input');
+                textFieldOne.setAttribute('id', 'first');
+
+                var textTwo = document.createElement('p');
+                textTwo.innerHTML = 'Second text field';
+                var textFieldTwo = document.createElement('input');
+                textFieldTwo.setAttribute('id', 'second');
+
+                var br = document.createElement('br');
+
+                var button = document.createElement('button');
+                button.innerHTML = 'Replace';
+                button.setAttribute('id', 'btn');
+
+
+
+                document.body.appendChild(textOne);
+                document.body.appendChild(textFieldOne);
+                document.body.appendChild(textTwo);
+                document.body.appendChild(textFieldTwo);
+                document.body.appendChild(br);
+                document.body.appendChild(button);
+
+                document.getElementById('btn').onclick = function () {
+                    document.getElementById('second').value =
+                            document.getElementById('first').value + ' ' + new Date();
+                };
+            }
+
+            //number3()
+
+            /*
+                Cоздать текстовое поле и кнопку.
+                При нажатии на пкопку в поле должно
+                вывестись "Hello World", написанное курсивом
+                (вне зависимости от введеной информации)
+             */
+            function number4() {
+                var textOne = document.createElement('p');
+                textOne.innerHTML = 'Text field';
+                var textFieldOne = document.createElement('input');
+                textFieldOne.setAttribute('id', 'txt');
+
+                var br = document.createElement('br');
+
+                var button = document.createElement('button');
+                button.innerHTML = 'Get text';
+                button.setAttribute('id', 'btn');
+
+                document.body.appendChild(textOne);
+                document.body.appendChild(textFieldOne);
+                document.body.appendChild(br);
+                document.body.appendChild(button);
+
+                document.getElementById('btn').onclick = function () {
+                    document.getElementById('txt').value = 'Hellow World';
+                    document.getElementById('txt').style.fontStyle = 'italic';
+                }
+
+            }
+            //number4();
+
+            /*
+                Есть параграф и кнопка. По клику
+                изменить шрифт на курсив и цвет
+                средствами js.
+             */
+
+            function number5() {
+                var textOne = document.createElement('p');
+                textOne.id = 'txt';
+                textOne.innerHTML = 'Text paragraph bla bla bla olololo gg.';
+
+                var button = document.createElement('button');
+                button.innerHTML = 'Change text';
+                button.setAttribute('id', 'btn');
+
+                document.body.appendChild(textOne);
+                document.body.appendChild(button);
+
+                document.getElementById('btn').onclick = function () {
+                    document.getElementById('txt').style.fontStyle = 'italic';
+                    document.getElementById('txt').style.color = 'red';
+                }
+            }
+            //number5();
+
+            /*
+                 Создать ассоциативный массив из
+                 трех элементов. Вывести при помощи
+                 for in по ключу все значения.
+             */
+            function number6() {
+                var assArray = {
+                    one: 'Hello World',
+                    two: 1999,
+                    three: true
+                };
+
+                for (var prop in assArray) {
+                    if (assArray.hasOwnProperty(prop)) {
+                        alert(prop + ' : ' + assArray[prop]);
+                    }
+                }
+
+            }
+            //number6();
+
+            /*
+                Создать окно с заданным размером,
+                фиксированный (нельзя изменить размер
+                окна) и вывести в том окне системное
+                текущее время.
+             */
+
+            // resizable work only in IE
+
+            function number7() {
+                var win = window.open('', '', 'height=300,width=300,resizable=no');
+                win.document.write('' + new Date());
+            }
+            //number7();
+
+            /*
+                Создать сценарий в котором два
+                текстовых поля и кнопка. По
+                нажатию на кнопку поменять содержимое
+                полей местами и вывести.
+             */
+
+            function number8 () {
+                var textOne = document.createElement('p');
+                textOne.innerHTML = 'First text field';
+                var textFieldOne = document.createElement('input');
+                textFieldOne.id = 'first';
+
+                var textTwo = document.createElement('p');
+                textTwo.innerHTML = 'Second text field';
+                var textFieldTwo = document.createElement('input');
+                textFieldTwo.id = 'second';
+
+                var br = document.createElement('br');
+
+                var button = document.createElement('button');
+                button.innerHTML = 'Change';
+                button.id = 'btn';
+
+                document.body.appendChild(textOne);
+                document.body.appendChild(textFieldOne);
+                document.body.appendChild(textTwo);
+                document.body.appendChild(textFieldTwo);
+                document.body.appendChild(br);
+                document.body.appendChild(button);
+
+                document.getElementById('btn').onclick = function () {
+                    var tmp = document.getElementById('first').value;
+                    document.getElementById('first').value  = document.getElementById('second').value;
+                    document.getElementById('second').value  = tmp;
+                };
+            }
+
+            //number8()
+
+            /*
+                Написать событие load!!, потом
+                вывести диалоговое окно с текстовым
+                полем, в которое вводится чсло, и после нажатия
+                на "ок" вывести синус этого числа.
+             */
+
+            // событие onload в начале скрипта!!!
+
+            function number9() {
+                var val = parseFloat( prompt('Input number') );
+
+                if ( !isNaN(val) && (typeof val === 'number')) {
+                    alert(Math.sin(val));
+                } else {
+                    alert('Input number!!!');
+                }
+            }
+            //number9();
+
+            /*
+                Создать объект с полями имя,
+                группа, спецуха. Вывести на экран в виде
+                ненумерованного списка.
+             */
+
+            function number10 () {
+                var student = {
+                    name: 'Dima',
+                    group: 888888,
+                    speciality: 'proger'
+                };
+
+                var ul = document.createElement('ul');
+                var li;
+
+                for (var prop in student) {
+                    if (student.hasOwnProperty(prop)) {
+                        li = document.createElement('li');
+                        li.innerHTML = prop + ' : ' + student[prop];
+                        ul.appendChild(li);
+                    }
+                }
+
+                document.body.appendChild(ul);
+
+            }
+            //number10();
+
+            /*
+                Сделать форму с 2 чекбоксами!! и кнопкой.
+                По нажатию на кнопку должен изменяться
+                расположенный ниже текст на тот цвет,
+                который выбран чекбоксом!!.
+
+             */
+
+            function number11() {
+                var textOne = document.createElement('span');
+                textOne.innerHTML = 'Green';
+                var textFieldOne = document.createElement('input');
+                textFieldOne.type = 'radio';
+                textFieldOne.name = 'color';
+                textFieldOne.id = 'first';
+
+                var textTwo = document.createElement('span');
+                textTwo.innerHTML = 'Red';
+                var textFieldTwo = document.createElement('input');
+                textFieldTwo.type = 'radio';
+                textFieldTwo.name = 'color';
+                textFieldTwo.id = 'second';
+
+                var br = document.createElement('br');
+
+                var button = document.createElement('button');
+                button.innerHTML = 'Change';
+                button.id = 'btn';
+
+                var paragraph = document.createElement('p');
+                paragraph.innerHTML = 'Some paragrahp bla bla bla ola ola ola.';
+                paragraph.id = 'par';
+
+
+                document.body.appendChild(textOne);
+                document.body.appendChild(textFieldOne);
+                document.body.appendChild(textTwo);
+                document.body.appendChild(textFieldTwo);
+                document.body.appendChild(br);
+                document.body.appendChild(button);
+                document.body.appendChild(paragraph);
+
+                document.getElementById('btn').onclick = function () {
+                    if ( document.getElementById('first').checked === true) {
+                        document.getElementById('par').style.color = 'green';
+                    } else if ( document.getElementById('second').checked === true ) {
+                        document.getElementById('par').style.color = 'red';
+                    } else {
+                        alert('Make you choice right now!')
+                    }
+
+                };
+            }
+            //number11();
+
+            /*
+                 Дана строка, вырезать из нее последние 2 слова и
+                 взять оставшиеся слова в ковычки при помощи методов строк
+             */
+
+            function number12() {
+                var string = 'Hello guys I am superman';
+
+                var words = string.split(' ');
+
+                var lastTwoWords = words.slice(-2).join(' ');
+
+                var otherWords = words.slice(0,-2).join('\" \"');
+                otherWords = '\"' + otherWords + '\"';
+
+                alert('Last two words: ' + lastTwoWords);
+                alert('Other words: ' + otherWords);
+            }
+            //number12();
+
+
+            /*
+                 Создать выпадающий список продуктов и кнопку по нажатию
+                 на которую в новом окне выводится выбранный пункт
+             */
+
+            function number13() {
+                var select = document.createElement('select');
+
+                for(var option, i = 0; i < 10; ++i) {
+                    option = document.createElement('option');
+                    option.innerHTML = 'Product ' + i;
+                    select.appendChild(option);
+                }
+
+                var button = document.createElement('button');
+                button.innerHTML = 'Get product';
+                button.id = 'btn';
+
+                document.body.appendChild(select);
+                document.body.appendChild(button);
+
+                document.getElementById('btn').onclick = function () {
+                    var input = document.getElementsByTagName('select')[0];
+                    var productChoice = input.options[input.selectedIndex].innerHTML;
+                    var win = window.open();
+                    win.document.write(productChoice);
+                };
+
+            }
+            //number13();
+
+
+            /*
+                 Два чекбокса. "Сдал" и "не сдал" экзамен.
+                 При выборе чекбокса и нажатии на кнопку,
+                 вывести выбранное значение в модальном окне
+             */
+
+            function number14() {
+                var textOne = document.createElement('span');
+                textOne.innerHTML = 'Сдал';
+                var textFieldOne = document.createElement('input');
+                textFieldOne.type = 'checkbox';
+                textFieldOne.name = 'exam';
+                textFieldOne.value = 'Сдал';
+
+                var textTwo = document.createElement('span');
+                textTwo.innerHTML = 'Не сдал';
+                var textFieldTwo = document.createElement('input');
+                textFieldTwo.type = 'checkbox';
+                textFieldTwo.name = 'exam';
+                textFieldTwo.value = 'Не сдал';
+
+
+                var br = document.createElement('br');
+
+                var button = document.createElement('button');
+                button.innerHTML = 'Get result';
+                button.id = 'btn';
+
+
+                document.body.appendChild(textOne);
+                document.body.appendChild(textFieldOne);
+                document.body.appendChild(textTwo);
+                document.body.appendChild(textFieldTwo);
+                document.body.appendChild(br);
+                document.body.appendChild(button);
+
+
+                document.getElementById('btn').onclick = function () {
+                    var checkBoxes = document.getElementsByName('exam');
+
+                    var data = '';
+                    for (var i = 0; i < checkBoxes.length; ++i) {
+                        if (checkBoxes[i].checked) {
+                            data += checkBoxes[i].value + ' ';
+                        }
+                    }
+                    data = data || 'No one checkbox were checked.';
+
+                    var win = window.open();
+
+                    win.document.write(data);
+                };
+            }
+            //number14();
+
+            /*
+                 Создать массив из 100 элементов, заполнить его
+                 случайными числами. Отсортировать масссив.
+                 В другую переменную отрезать первую половину
+                 массива и вывести с помощью for..in.
+             */
+
+            function number15() {
+                var array = [];
+
+                for(var i = 0; i < 100; ++i) {
+                    array.push(Math.random());
+                }
+
+                array.sort();
+
+                var halfArray = array.slice(0, array.length / 2);
+
+                var output = '';
+                for (var i in halfArray) {
+                    output += i + ' : ' + halfArray[i] + '\n';
+                }
+
+                alert(output);
+            }
+
+            number15();
+        }
+    </script>
+</head>
+<body>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

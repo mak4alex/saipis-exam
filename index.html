@@ -337,6 +337,21 @@
                  взять оставшиеся слова в ковычки при помощи методов строк
              */
 
+            function number12() {
+                var string = 'Hello guys I am superman';
+
+                var words = string.split(' ');
+
+                var lastTwoWords = words.slice(-2).join(' ');
+
+                var otherWords = words.slice(0,-2).join('\" \"');
+                otherWords = '\"' + otherWords + '\"';
+
+                alert('Last two words: ' + lastTwoWords);
+                alert('Other words: ' + otherWords);
+            }
+            number12();
+
 
             /*
                  Создать выпадающий список продуктов и кнопку по нажатию

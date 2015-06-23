@@ -529,7 +529,65 @@
             sum(400, 110, displaySum);
 
           }
-          number17();
+          //number17();
+
+
+           /*
+                Создать текстовое поле и 2 кнопки. По нажатию
+                на 1 кнопку число добавляется в массив. По нажатию
+                на 2 кнопку выводится массив отсортированный по возрастанию
+             */
+
+            function number18() {
+                var textOne = document.createElement('span');
+                textOne.innerHTML = 'Input number';
+                var textFieldOne = document.createElement('input');
+                textFieldOne.id = 'input-number';
+
+                var br = document.createElement('br');
+
+                var buttonOne = document.createElement('button');
+                buttonOne.innerHTML = 'Add number';
+                buttonOne.id = 'add-button';
+
+                var buttonTwo = document.createElement('button');
+                buttonTwo.innerHTML = 'Show array';
+                buttonTwo.id = 'show-button';
+
+
+                document.body.appendChild(textOne);
+                document.body.appendChild(textFieldOne);
+                document.body.appendChild(br);
+                document.body.appendChild(buttonOne);
+                document.body.appendChild(buttonTwo);
+
+
+                var numbers = [];
+                var form = document.getElementById('input-number');
+                var number;
+
+                document.getElementById('add-button').onclick = function () {
+                    number = parseFloat(form.value);
+                    if ( !isNaN(number) && (typeof number === 'number')) {
+                        numbers.push(number);
+                    } else {
+                        alert('Input number!!!');
+                    }
+                };
+
+                var paragraph = document.createElement('p');
+
+                document.getElementById('show-button').onclick = function () {
+                    if (numbers.length !== 0) {
+                       paragraph.innerHTML = numbers.join(', ');
+                    }
+                    else {
+                        paragraph.innerHTML = 'Array is empty.'
+                    }
+                    document.body.appendChild(paragraph);
+                };
+            }
+            number18();
 
 
         }

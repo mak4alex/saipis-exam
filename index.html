@@ -466,7 +466,45 @@
                 alert(output);
             }
 
-            number15();
+            //number15();
+
+            /*
+                Создать класс человек, унаследовать
+                от него класс студент. В классе студент
+                переопределить метод.
+                         */
+
+            function number16() {
+
+                function Man(name, age) {
+                    this.name = name;
+                    this.age = age;
+                }
+
+                Man.prototype.getShow = function() {
+                    return ('Hello, my name is ' + this.name + '. I am ' + this.age + '.');
+                };
+
+                function Student(name, age, speciality) {
+                    this.__proto__.__proto__.name = name;
+                    this.__proto__.__proto__.age = age;
+                    this.speciality = speciality;
+                }
+
+                Student.prototype.__proto__ = Man.prototype;
+
+                Student.prototype.getShow = function() {
+                    return ('My speciality is ' + this.speciality + '. ' + this.__proto__.__proto__.getShow());
+                };
+
+                var student = new Student('Dima', 12, 'pro cs player');
+
+                console.log(student.getShow());
+
+            }
+
+            number16();
+
         }
     </script>
 </head>

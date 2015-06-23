@@ -504,7 +504,7 @@
 
             }
 
-            number16();
+            //number16();
 
           /*
               Создать функцию которая принимает 3 параметра:
@@ -588,7 +588,7 @@
                     document.body.appendChild(paragraph);
                 };
             }
-            number18();
+            //number18();
 
             /*
                 По Событию onload нужно вывести диалоговое
@@ -611,6 +611,41 @@
 
             }
             //number19();
+
+            /*
+
+                При помощи континуе заполните массив от 1 - 50
+                четными числами. сделайте запрос при помощи
+                которого сравнивается значение введенное
+                пользоватеоем и теми что в массиве. Что-то такое
+
+             */
+
+            function number20() {
+
+                var array = [];
+                var number;
+
+                for (var i = 0; i < 100; ++i) {
+                    number = parseInt( Math.random() * 50 );
+                    if (number % 2 != 0) {
+                        continue;
+                    }
+                    array.push(number);
+                }
+
+                alert('Array: ' + array.join('\n'));
+
+                var userQuery = parseInt(prompt('Input number'));
+
+                if (array.indexOf(userQuery) > -1) {
+                    alert('Such number exists.')
+                } else {
+                    alert('Such number does not exist.')
+                }
+            }
+
+            number20();
 
         }
     </script>

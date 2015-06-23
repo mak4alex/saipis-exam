@@ -579,6 +579,7 @@
 
                 document.getElementById('show-button').onclick = function () {
                     if (numbers.length !== 0) {
+                       numbers.sort();
                        paragraph.innerHTML = numbers.join(', ');
                     }
                     else {
@@ -587,7 +588,7 @@
                     document.body.appendChild(paragraph);
                 };
             }
-            //number18();
+            number18();
 
             /*
                 По Событию onload нужно вывести диалоговое
@@ -609,7 +610,7 @@
                 }
 
             }
-            number19();
+            //number19();
 
         }
     </script>

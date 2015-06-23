@@ -587,8 +587,29 @@
                     document.body.appendChild(paragraph);
                 };
             }
-            number18();
+            //number18();
 
+            /*
+                По Событию onload нужно вывести диалоговое
+                окно в котором пользователь вводит пароль.
+                Если пароль совпадает с заданным вывести
+                модальное окно заданной ширины с предупреждением
+             */
+            // событие onload в самом верху скрипта
+            function number19() {
+                var password = '123456';
+
+                var input = prompt('Input password');
+
+                if (input === password) {
+                    var win = window.open('', 'Password check', 'height=500,width=200');
+                    win.document.write('Password is correct');
+                } else {
+                    alert('Wrong password');
+                }
+
+            }
+            number19();
 
         }
     </script>
